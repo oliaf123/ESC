@@ -1,48 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-image: url('ESC_Main_Visual.png');
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: white;
+    margin: 0;
+    min-height: 100vh;
     padding: 20px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+#app {
+    background-color: rgba(0, 0, 0, 0.6); /* halvt genomskinlig bakgrund för läsbarhet */
+    padding: 20px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
 
-input {
-    padding: 8px;
-    margin: 10px;
+input, button {
+    padding: 10px;
     font-size: 16px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    border: none;
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 16px;
+    background-color: #ff007f;
+    color: white;
+    font-weight: bold;
     cursor: pointer;
+}
+
+button:hover {
+    background-color: #e60073;
+}
+
+.logo {
+    width: 80%;
+    max-width: 200px;
+    margin-bottom: 20px;
 }
 
 .hidden {
     display: none;
-}
-
-#app {
-    max-width: 600px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-}
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom right, #1e0059, #4b0082);
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-.logo {
-    width: 150px;
-    margin-bottom: 20px;
 }
