@@ -1,9 +1,15 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    background-image: url('ESC_Main_Visual.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
     padding: 20px;
     text-align: center;
 }
+
 
 input {
     padding: 8px;
