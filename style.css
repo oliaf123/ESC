@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -9,44 +11,22 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: white;
-    margin: 0;
     min-height: 100vh;
-    padding: 20px;
-    text-align: center;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    text-align: center;
 }
 
 #app {
-    background-color: rgba(0, 0, 0, 0.6); /* halvt genomskinlig bakgrund för läsbarhet */
-    padding: 20px;
-    border-radius: 12px;
-    width: 100%;
+    background-color: rgba(0, 0, 0, 0.65); /* halvt genomskinlig svart bakgrund */
+    padding: 25px;
+    border-radius: 15px;
     max-width: 500px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-}
-
-input, button {
-    padding: 10px;
-    font-size: 16px;
-    margin-top: 10px;
     width: 100%;
-    max-width: 300px;
-    border-radius: 8px;
-    border: none;
-}
-
-button {
-    background-color: #ff007f;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #e60073;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
 .logo {
@@ -55,6 +35,44 @@ button:hover {
     margin-bottom: 20px;
 }
 
+input, button {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px auto;
+    width: 90%;
+    max-width: 300px;
+    border-radius: 8px;
+    border: none;
+    display: block;
+}
+
+input {
+    background-color: #fff;
+    color: #000;
+}
+
+button {
+    background-color: #ff007f;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e60073;
+}
+
+h1, h2, h3, p {
+    margin-bottom: 15px;
+}
+
 .hidden {
     display: none;
+}
+
+ol {
+    text-align: left;
+    margin-top: 10px;
+    padding-left: 20px;
 }
