@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Eurovision Betygsättning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div id="name-section">
+            <h1>Välkommen!</h1>
+            <p>Skriv in ditt namn för att börja betygsätta låtarna:</p>
+            <input type="text" id="username" placeholder="Ditt namn">
+            <button onclick="startApp()">Starta</button>
+        </div>
+
+        <div id="rating-section" class="hidden">
+            <h2 id="song-title">Låtens namn</h2>
+            <p>Betyg (1–10):</p>
+            <input type="number" id="rating" min="1" max="10">
+            <p>Gissa placering (1 = vinner):</p>
+            <input type="number" id="guess" min="1" max="26">
+            <button onclick="submitRating()">Nästa låt</button>
+        </div>
+
+        <div id="result-section" class="hidden">
+            <h2>Tack, <span id="display-name"></span>!</h2>
+            <h3>Din topplista:</h3>
+            <ol id="toplist"></ol>
+
+            <h3>Din gissade slutplacering:</h3>
+            <ol id="guesslist"></ol>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
