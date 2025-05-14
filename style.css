@@ -28,3 +28,15 @@ button {
     padding: 20px;
     border-radius: 8px;
 }
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #1e0059, #4b0082);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    width: 150px;
+    margin-bottom: 20px;
+}
