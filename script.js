@@ -33,7 +33,7 @@ function showSong() {
     document.getElementById("rating").value = "";
     document.getElementById("guess").value = "";
 
-    // Nollställ markerade knappar
+    // Avmarkera eventuellt tidigare valda knappar
     const buttons = document.querySelectorAll("#points-buttons button");
     buttons.forEach(btn => btn.classList.remove("selected"));
 }
@@ -41,7 +41,6 @@ function showSong() {
 function setRating(value) {
     document.getElementById("rating").value = value;
 
-    // Markera vald knapp visuellt
     const buttons = document.querySelectorAll("#points-buttons button");
     buttons.forEach(btn => {
         btn.classList.remove("selected");
