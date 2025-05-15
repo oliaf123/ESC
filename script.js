@@ -58,21 +58,28 @@ function showResults() {
     document.getElementById("result-section").classList.remove("hidden");
     document.getElementById("display-name").textContent = username;
 
-    // Sortera efter rating
+    // Sortera låtar efter betyg (högst först)
     const sortedByRating = [...ratings].sort((a, b) => b.rating - a.rating);
+
+    // Visa topplista
     const toplist = document.getElementById("toplist");
-    sortedByRating.forEach(item => {
+    toplist.innerHTML = ""; // nollställ listan först
+    sortedByRating.forEach((item, index) => {
         const li = document.createElement("li");
-        li.textContent = `${item.song} (betyg: ${item.rating})`;
+        li.textContent = `${item.song} – ${item.rating} poäng`;
         toplist.appendChild(li);
     });
 
-    // Sortera efter gissad placering (1 bäst)
+    // Sortera låtar efter gissad placering (1 bäst)
     const sortedByGuess = [...ratings].sort((a, b) => a.guess - b.guess);
+
+    // Visa gissningslista
     const guesslist = document.getElementById("guesslist");
-    sortedByGuess.forEach(item => {
+    guesslist.innerHTML = "";
+    sortedByGuess.forEach((item, index) => {
         const li = document.createElement("li");
-        li.textContent = `${item.song} (gissning: ${item.guess})`;
+        li.textContent = `${item.song} – Gissad placering: ${item.guess}`;
         guesslist.appendChild(li);
     });
 }
+
