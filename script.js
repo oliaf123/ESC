@@ -32,6 +32,23 @@ function showSong() {
     document.getElementById("song-title").textContent = songs[currentIndex].title;
     document.getElementById("rating").value = "";
     document.getElementById("guess").value = "";
+
+    // Nollställ markerade knappar
+    const buttons = document.querySelectorAll("#points-buttons button");
+    buttons.forEach(btn => btn.classList.remove("selected"));
+}
+
+function setRating(value) {
+    document.getElementById("rating").value = value;
+
+    // Markera vald knapp visuellt
+    const buttons = document.querySelectorAll("#points-buttons button");
+    buttons.forEach(btn => {
+        btn.classList.remove("selected");
+        if (parseInt(btn.textContent) === value) {
+            btn.classList.add("selected");
+        }
+    });
 }
 
 function submitRating() {
@@ -59,7 +76,6 @@ function showResults() {
     document.getElementById("result-section").classList.remove("hidden");
     document.getElementById("display-name").textContent = username;
 
-    // Sortera låtar efter poäng
     const sortedByRating = [...ratings].sort((a, b) => b.rating - a.rating);
     const toplist = document.getElementById("toplist");
     toplist.innerHTML = "";
@@ -69,7 +85,6 @@ function showResults() {
         toplist.appendChild(li);
     });
 
-    // Sortera efter gissning
     const sortedByGuess = [...ratings].sort((a, b) => a.guess - b.guess);
     const guesslist = document.getElementById("guesslist");
     guesslist.innerHTML = "";
