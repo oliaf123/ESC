@@ -35,11 +35,12 @@ function showSong() {
 }
 
 function submitRating() {
-    const rating = parseInt(document.getElementById("rating").value);
+    const ratingValue = document.getElementById("rating").value;
+    const rating = parseInt(ratingValue);
     const guess = parseInt(document.getElementById("guess").value);
 
-    if (!rating || rating < 1 || rating > 10 || !guess || guess < 1) {
-        alert("Ange både betyg (1–10) och gissad placering!");
+    if (!ratingValue || isNaN(rating) || !guess || guess < 1) {
+        alert("Välj ett giltigt poängvärde och gissad placering!");
         return;
     }
 
@@ -58,28 +59,23 @@ function showResults() {
     document.getElementById("result-section").classList.remove("hidden");
     document.getElementById("display-name").textContent = username;
 
-    // Sortera låtar efter betyg (högst först)
+    // Sortera låtar efter poäng
     const sortedByRating = [...ratings].sort((a, b) => b.rating - a.rating);
-
-    // Visa topplista
     const toplist = document.getElementById("toplist");
-    toplist.innerHTML = ""; // nollställ listan först
-    sortedByRating.forEach((item, index) => {
+    toplist.innerHTML = "";
+    sortedByRating.forEach((item) => {
         const li = document.createElement("li");
         li.textContent = `${item.song} – ${item.rating} poäng`;
         toplist.appendChild(li);
     });
 
-    // Sortera låtar efter gissad placering (1 bäst)
+    // Sortera efter gissning
     const sortedByGuess = [...ratings].sort((a, b) => a.guess - b.guess);
-
-    // Visa gissningslista
     const guesslist = document.getElementById("guesslist");
     guesslist.innerHTML = "";
-    sortedByGuess.forEach((item, index) => {
+    sortedByGuess.forEach((item) => {
         const li = document.createElement("li");
         li.textContent = `${item.song} – Gissad placering: ${item.guess}`;
         guesslist.appendChild(li);
     });
 }
-
