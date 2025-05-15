@@ -81,20 +81,21 @@ ol {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    margin: 15px 0;
+    gap: 5px; /* mindre avstånd mellan knapparna */
+    margin: 10px 0;
 }
 
 .points-grid button {
-    padding: 10px 15px;
-    font-size: 16px;
+    padding: 6px 10px; /* mindre storlek på knappen */
+    font-size: 15px;
     font-weight: bold;
     background-color: #222;
     color: white;
-    border-radius: 8px;
+    border-radius: 6px;
     border: none;
     cursor: pointer;
 }
+
 
 .points-grid button:hover {
     background-color: #444;
