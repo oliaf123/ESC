@@ -82,7 +82,7 @@ ol {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 2px; /* mindre avstånd */
+    gap: 1px; /* mindre avstånd */
     margin: 15px 0;
 }
 
