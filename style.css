@@ -77,25 +77,27 @@ ol {
     padding-left: 20px;
 }
 
+/* 🎯 Poängknappar */
 .points-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5px; /* mindre avstånd mellan knapparna */
-    margin: 10px 0;
+    gap: 5px; /* mindre avstånd */
+    margin: 15px 0;
 }
 
 .points-grid button {
-    padding: 6px 10px; /* mindre storlek på knappen */
-    font-size: 15px;
+    padding: 10px 15px;
+    font-size: 16px;
     font-weight: bold;
     background-color: #222;
     color: white;
-    border-radius: 6px;
+    border-radius: 8px;
     border: none;
     cursor: pointer;
+    min-width: 60px;
+    text-align: center;
 }
-
 
 .points-grid button:hover {
     background-color: #444;
