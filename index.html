@@ -19,7 +19,20 @@
         <div id="rating-section" class="hidden">
             <h2 id="song-title">Låtens namn</h2>
             <p>Betyg (1–10):</p>
-            <input type="number" id="rating" min="1" max="10">
+           <select id="rating">
+    <option value="">Välj poäng</option>
+    <option value="12">12</option>
+    <option value="10">10</option>
+    <option value="8">8</option>
+    <option value="7">7</option>
+    <option value="6">6</option>
+    <option value="5">5</option>
+    <option value="4">4</option>
+    <option value="3">3</option>
+    <option value="2">2</option>
+    <option value="1">1</option>
+</select>
+
             <p>Gissa placering (1 = vinner):</p>
             <input type="number" id="guess" min="1" max="26">
             <button onclick="submitRating()">Nästa låt</button>
