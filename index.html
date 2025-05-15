@@ -11,27 +11,27 @@
         <div id="name-section">
             <img src="logo.png" alt="Eurovision-logo" class="logo">
             <h1>Välkommen till Eurovision-röstningen!</h1>
-            <p>Ge varje låt ett betyg och gissa deras placering. Börja med att skriva in ditt namn:</p>
+            <p>Ge varje låt ett poäng (12, 10, 8–1) och gissa dess slutplacering. Börja med att skriva in ditt namn:</p>
             <input type="text" id="username" placeholder="Ditt namn">
             <button onclick="startApp()">Starta</button>
         </div>
 
         <div id="rating-section" class="hidden">
             <h2 id="song-title">Låtens namn</h2>
-            <p>Betyg (1–10):</p>
-           <select id="rating">
-    <option value="">Välj poäng</option>
-    <option value="12">12</option>
-    <option value="10">10</option>
-    <option value="8">8</option>
-    <option value="7">7</option>
-    <option value="6">6</option>
-    <option value="5">5</option>
-    <option value="4">4</option>
-    <option value="3">3</option>
-    <option value="2">2</option>
-    <option value="1">1</option>
-</select>
+            <p>Välj poäng:</p>
+            <div id="points-buttons" class="points-grid">
+                <button type="button" onclick="setRating(12)">12</button>
+                <button type="button" onclick="setRating(10)">10</button>
+                <button type="button" onclick="setRating(8)">8</button>
+                <button type="button" onclick="setRating(7)">7</button>
+                <button type="button" onclick="setRating(6)">6</button>
+                <button type="button" onclick="setRating(5)">5</button>
+                <button type="button" onclick="setRating(4)">4</button>
+                <button type="button" onclick="setRating(3)">3</button>
+                <button type="button" onclick="setRating(2)">2</button>
+                <button type="button" onclick="setRating(1)">1</button>
+            </div>
+            <input type="hidden" id="rating">
 
             <p>Gissa placering (1 = vinner):</p>
             <input type="number" id="guess" min="1" max="26">
