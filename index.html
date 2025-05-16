@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eurovision Betygsättning</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -39,7 +40,7 @@
         </div>
 
         <div id="result-section" class="hidden">
-            <h2>Tack, <span id="display-name"></span>!</h2>
+            <h2 id="final-message"></h2>
             <h3>Din topplista:</h3>
             <ol id="toplist"></ol>
 
