@@ -1,10 +1,32 @@
 const songs = [
-    { title: "Låt 1 - Sverige" },
-    { title: "Låt 2 - Italien" },
-    { title: "Låt 3 - Frankrike" },
-    { title: "Låt 4 - Norge" },
-    { title: "Låt 5 - Spanien" }
+    { title: "1. Norge – Kyle Alessandro – Lighter" },
+    { title: "2. Luxemburg – Laura Thorn – La Poupée Monte Le Son" },
+    { title: "3. Estland – Tommy Cash – Espresso Macchiato" },
+    { title: "4. Israel – Yuval Raphael – New Day Will Rise" },
+    { title: "5. Litauen – Katarsis – Tavo Akys" },
+    { title: "6. Spanien – Melody – ESA DIVA" },
+    { title: "7. Ukraina – Ziferblat – Bird of Pray" },
+    { title: "8. Storbritannien – Remember Monday – What The Hell Just Happened?" },
+    { title: "9. Österrike – JJ – Wasted Love" },
+    { title: "10. Island – VÆB – RÓA" },
+    { title: "11. Lettland – Tautumeitas – Bur Man Laimi" },
+    { title: "12. Nederländerna – Claude – C’est La Vie" },
+    { title: "13. Finland – Erika Vikman – ICH KOMME" },
+    { title: "14. Italien – Lucio Corsi – Volevo Essere Un Duro" },
+    { title: "15. Polen – Justyna Steczkowska – GAJA" },
+    { title: "16. Tyskland – Abor & Tynna – Baller" },
+    { title: "17. Grekland – Klavdia – Asteromáta" },
+    { title: "18. Armenien – PARG – SURVIVOR" },
+    { title: "19. Schweiz – Zoë Më – Voyage" },
+    { title: "20. Malta – Miriana Conte – SERVING" },
+    { title: "21. Portugal – NAPA – Deslocado" },
+    { title: "22. Danmark – Sissal – Hallucination" },
+    { title: "23. Sverige – KAJ – Bara Bada Bastu" },
+    { title: "24. Frankrike – Louane – maman" },
+    { title: "25. San Marino – Gabry Ponte – Tutta L’Italia" },
+    { title: "26. Albanien – Shkodra Elektronike – Zjerm" }
 ];
+
 
 let currentIndex = 0;
 let username = "";
