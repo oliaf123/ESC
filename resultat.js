@@ -6,14 +6,14 @@ fetch(API_URL)
     const container = document.getElementById("results-container");
     container.innerHTML = "";
 
-    // Gruppera per användare
+    // Gruppera röster per användare
     const grouped = {};
     data.forEach(row => {
       if (!grouped[row.namn]) grouped[row.namn] = [];
       grouped[row.namn].push(row);
     });
 
-    // Sortera och visa varje användares röster
+    // Visa varje användares röster
     Object.keys(grouped).forEach(namn => {
       const userDiv = document.createElement("div");
       userDiv.style.marginBottom = "30px";
@@ -32,6 +32,6 @@ fetch(API_URL)
   })
   .catch(err => {
     document.getElementById("results-container").textContent =
-      "Kunde inte hämta data 😢";
+      "Kunde inte hämta data från Google Sheets 😢";
     console.error(err);
   });
