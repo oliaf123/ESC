@@ -27,7 +27,6 @@ const songs = [
     { title: "26. Albanien – Shkodra Elektronike – Zjerm" }
 ];
 
-
 let currentIndex = 0;
 let username = "";
 let ratings = [];
@@ -81,21 +80,43 @@ function submitRating() {
         return;
     }
 
-    ratings.push({
-        song: songs[currentIndex].title,
-        rating: rating,
-        guess: guess
-    });
+    const currentSong = songs[currentIndex].title;
 
-    // 🎉 Konfetti efter varje låt
-    confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.4 }
-    });
+    // Skicka till SheetDB (Google Sheets via API)
+    fetch("https://sheetdb.io/api/v1/kspn2f0xcnhid", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            data: [{
+                namn: username,
+                låt: currentSong,
+                poäng: rating,
+                gissning: guess
+            }]
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Något gick fel vid uppladdning!");
+        }
+        return response.json();
+    })
+    .then(() => {
+        ratings.push({
+            song: currentSong,
+            rating: rating,
+            guess: guess
+        });
 
-    currentIndex++;
-    showSong();
+        // 🎉 Konfetti efter varje låt
+        confetti({ particleCount: 100, spread: 70, origin: { y: 0.4 } });
+
+        currentIndex++;
+        showSong();
+    })
+    .catch(error => {
+        alert("Fel vid uppladdning till molnet: " + error.message);
+    });
 }
 
 function showResults() {
@@ -105,14 +126,8 @@ function showResults() {
     const message = `Redo för Eurovision, ${username}!`;
     document.getElementById("final-message").textContent = message;
 
-    // 🎉 Extra konfetti
-    confetti({
-        particleCount: 200,
-        spread: 100,
-        origin: { y: 0.4 }
-    });
-
-    // 🎈 Ballonger
+    // 🎉 Konfetti & 🎈 ballonger på slutet
+    confetti({ particleCount: 200, spread: 100, origin: { y: 0.4 } });
     createBalloons();
 
     const sortedByRating = [...ratings].sort((a, b) => b.rating - a.rating);
@@ -141,9 +156,6 @@ function createBalloons() {
         balloon.style.left = `${Math.random() * 90 + 5}%`;
         balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 60%)`;
         document.body.appendChild(balloon);
-
-        setTimeout(() => {
-            balloon.remove();
-        }, 6000);
+        setTimeout(() => balloon.remove(), 6000);
     }
 }
