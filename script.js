@@ -108,8 +108,10 @@ function submitRating() {
             guess: guess
         });
 
-        // 🎉 Konfetti efter varje låt
-        confetti({ particleCount: 100, spread: 70, origin: { y: 0.4 } });
+        // 🎉 Endast konfetti efter första låten
+        if (currentIndex === 0) {
+            confetti({ particleCount: 100, spread: 70, origin: { y: 0.4 } });
+        }
 
         currentIndex++;
         showSong();
@@ -126,7 +128,7 @@ function showResults() {
     const message = `Redo för Eurovision, ${username}!`;
     document.getElementById("final-message").textContent = message;
 
-    // 🎉 Konfetti & 🎈 ballonger på slutet
+    // 🎉🎈 Konfetti & ballonger på sista låten
     confetti({ particleCount: 200, spread: 100, origin: { y: 0.4 } });
     createBalloons();
 
