@@ -33,7 +33,6 @@ function showSong() {
     document.getElementById("rating").value = "";
     document.getElementById("guess").value = "";
 
-    // Avmarkera eventuellt tidigare valda knappar
     const buttons = document.querySelectorAll("#points-buttons button");
     buttons.forEach(btn => btn.classList.remove("selected"));
 }
@@ -66,6 +65,13 @@ function submitRating() {
         guess: guess
     });
 
+    // 🎉 Konfetti efter varje låt
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.4 }
+    });
+
     currentIndex++;
     showSong();
 }
@@ -73,7 +79,19 @@ function submitRating() {
 function showResults() {
     document.getElementById("rating-section").classList.add("hidden");
     document.getElementById("result-section").classList.remove("hidden");
-    document.getElementById("display-name").textContent = username;
+
+    const message = `Redo för Eurovision, ${username}!`;
+    document.getElementById("final-message").textContent = message;
+
+    // 🎉 Extra konfetti
+    confetti({
+        particleCount: 200,
+        spread: 100,
+        origin: { y: 0.4 }
+    });
+
+    // 🎈 Ballonger
+    createBalloons();
 
     const sortedByRating = [...ratings].sort((a, b) => b.rating - a.rating);
     const toplist = document.getElementById("toplist");
@@ -92,4 +110,18 @@ function showResults() {
         li.textContent = `${item.song} – Gissad placering: ${item.guess}`;
         guesslist.appendChild(li);
     });
+}
+
+function createBalloons() {
+    for (let i = 0; i < 10; i++) {
+        const balloon = document.createElement('div');
+        balloon.classList.add('balloon');
+        balloon.style.left = `${Math.random() * 90 + 5}%`;
+        balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 60%)`;
+        document.body.appendChild(balloon);
+
+        setTimeout(() => {
+            balloon.remove();
+        }, 6000);
+    }
 }
